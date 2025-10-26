@@ -1,6 +1,51 @@
-# Sập Bẫy Online - AI Comic
+# AI Comic Collection - Educational & Awareness Comics
 
-An educational comic about online scam awareness for Vietnamese students.
+> ⚠️ **Note:** This repository was almost entirely created by AI - from the comic stories and content to the code implementation and documentation. This demonstrates the capabilities of Generative AI in creating complete, functional projects.
+
+> 🤖 **AI-Generated Demo Project** - A collection of educational and awareness comics created with the help of Generative AI. Stay tuned for more cool things and useful AI-powered features coming soon!
+
+
+Interactive comics focusing on education and public awareness campaigns for Vietnamese audiences.
+
+## 📚 Current Comics
+
+### 1. Sập Bẫy Online (Falling for Online Traps)
+**Target Audience:** Students aged 11-18  
+**Topic:** Online scam awareness  
+**Pages:** 7 pages (1 cover + 6 story pages)  
+**Status:** ✅ Available
+
+---
+
+## 🛠️ Coming Next: AI Comic Builder Tool
+
+**🚀 RELEASING SOON!**
+
+An innovative AI-powered tool that helps you create educational and awareness comics:
+- 📝 **Story Generation:** AI helps write compelling narratives
+- 🎨 **Character Design:** Generate characters with AI assistance
+- 🖼️ **Panel Layout:** Automatic comic panel arrangement
+- 💬 **Dialogue Editor:** Easy text and speech bubble management
+- 🎭 **Style Options:** Multiple art styles and themes
+- 📤 **Export & Share:** Publish your comics instantly
+
+Stay tuned for the launch! 🎉
+
+---
+
+## ✨ About This Project
+
+This interactive comic viewer showcases how Generative AI can be used to create educational content. The story, characters, and viewer interface were developed with AI assistance to demonstrate the potential of AI in digital storytelling and education.
+
+**Future Plans:**
+- 🚀 AI Comic Builder Tool (Coming Soon!)
+- 📢 Public awareness campaigns (health, safety, environment)
+- 📚 More AI-generated educational comics on various topics
+- 🎨 Advanced comic creation and editing features
+- 🌐 Multilingual support
+- 🎭 Character customization with AI
+- 🏫 School curriculum integration
+- 👥 Community marketplace for sharing comics
 
 ## 🚀 Deployment
 
@@ -46,13 +91,15 @@ aicomic/
 
 ## ✨ Features
 
-- 📖 Interactive comic reader
+- 📖 Interactive comic reader with smooth page transitions
 - 🎨 Black & white filter mode (excludes cover)
 - ⛶ Fullscreen reading mode
-- ⌨️ Keyboard navigation
-- 📱 Responsive design
+- ⌨️ Keyboard navigation (Arrow keys, A/D, Space)
+- 📱 Responsive design for all devices
 - 🖼️ Thumbnail navigation
 - 🎯 Educational content about online scam awareness
+- 🎭 AI-assisted storytelling and character development
+- ✨ Smooth slide animation for page turns
 
 ## 🎮 Controls
 
@@ -66,3 +113,23 @@ aicomic/
 ## 📄 License
 
 Educational project for scam awareness.
+
+---
+
+## 🔮 Coming Soon
+
+### 🎨 AI Comic Builder Tool - Your Next Update!
+Create your own educational and awareness comics with AI assistance. No drawing skills required!
+
+**Other Features in Development:**
+- More interactive educational content across multiple topics
+- Public awareness and propaganda comics for social good
+- Personalized learning experiences
+- Community-driven storytelling features
+- Multi-topic comic collections (education, health, safety, environment)
+
+**This is just the beginning!** Follow this project to see how AI can be used to build something truly useful and impactful in education, awareness campaigns, and digital storytelling.
+
+---
+
+Made with ❤️ using Generative AI | 2025

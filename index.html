@@ -310,6 +310,12 @@
             color: #fff;
         }
 
+        .animation-toggle-btn.active {
+            background: #d97706;
+            border-color: #92400e;
+            color: #fff;
+        }
+
         .comic-display {
             max-width: 1400px;
             margin: 0 auto;
@@ -317,28 +323,93 @@
             justify-content: center;
             align-items: center;
             min-height: 70vh;
+            position: relative;
+            overflow: hidden;
         }
 
         .page-container {
             width: 100%;
             display: none;
-            animation: fadeIn 0.5s ease;
+            position: absolute;
         }
 
         .page-container.active {
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
+        /* Smooth Slide & Fade Page Turn Animations - Best Practice */
+        .page-container.slide-next-enter {
+            animation: slideNextEnter 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+        }
+
+        .page-container.slide-next-exit {
+            animation: slideNextExit 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+        }
+
+        .page-container.slide-prev-enter {
+            animation: slidePrevEnter 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+        }
+
+        .page-container.slide-prev-exit {
+            animation: slidePrevExit 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+        }
+
+        /* Slide to next page (current page slides left and fades) */
+        @keyframes slideNextExit {
+            0% {
+                transform: translateX(0) scale(1);
                 opacity: 1;
-                transform: translateY(0);
+                z-index: 10;
+            }
+            100% {
+                transform: translateX(-100%) scale(0.95);
+                opacity: 0;
+                z-index: 1;
+            }
+        }
+
+        /* Slide to next page (new page enters from right) */
+        @keyframes slideNextEnter {
+            0% {
+                transform: translateX(100%) scale(0.95);
+                opacity: 0;
+                z-index: 5;
+            }
+            100% {
+                transform: translateX(0) scale(1);
+                opacity: 1;
+                z-index: 10;
+            }
+        }
+
+        /* Slide to previous page (current page slides right and fades) */
+        @keyframes slidePrevExit {
+            0% {
+                transform: translateX(0) scale(1);
+                opacity: 1;
+                z-index: 10;
+            }
+            100% {
+                transform: translateX(100%) scale(0.95);
+                opacity: 0;
+                z-index: 1;
+            }
+        }
+
+        /* Slide to previous page (new page enters from left) */
+        @keyframes slidePrevEnter {
+            0% {
+                transform: translateX(-100%) scale(0.95);
+                opacity: 0;
+                z-index: 5;
+            }
+            100% {
+                transform: translateX(0) scale(1);
+                opacity: 1;
+                z-index: 10;
             }
         }
 
@@ -600,6 +671,11 @@
         </div>
     </div>
 
+    <!-- Start Reading Button (Top) -->
+    <div class="start-reading-section">
+        <button class="start-reading-btn" id="startReadingBtn">🔖 Bắt Đầu Đọc</button>
+    </div>
+
     <!-- Warning Banner -->
     <div class="warning-banner">
         <div class="warning-icon">⚠️</div>
@@ -667,11 +743,6 @@
         </div>
     </div>
 
-    <!-- Start Reading Button -->
-    <div class="start-reading-section">
-        <button class="start-reading-btn" id="startReadingBtn">🔖 Bắt Đầu Đọc</button>
-    </div>
-
     <!-- Comic Viewer -->
     <div class="comic-viewer-wrapper" id="comicViewer">
         <div class="reading-controls">
@@ -684,6 +755,7 @@
             </div>
             <div class="controls-right">
                 <button class="bw-filter-btn" id="bwFilterBtn">⬛ Đen Trắng</button>
+                <button class="fullscreen-btn animation-toggle-btn" id="animationToggleBtn">🎬 Hiệu Ứng</button>
                 <button class="close-btn" id="closeBtn">✕ Đóng</button>
                 <button class="fullscreen-btn" id="fullscreenBtn">⛶ Toàn Màn Hình</button>
             </div>
@@ -775,6 +847,9 @@
         let currentPageIndex = 0;
         let isFullscreen = false;
         let isBWFilter = false;
+        let isAnimating = false;
+        let isAnimationEnabled = false; // Animation is OFF by default
+        let navigationDirection = 'next'; // Track direction for animation
 
         const startReadingBtn = document.getElementById('startReadingBtn');
         const closeBtn = document.getElementById('closeBtn');
@@ -786,6 +861,7 @@
         const nextBtn = document.getElementById('nextBtn');
         const fullscreenBtn = document.getElementById('fullscreenBtn');
         const bwFilterBtn = document.getElementById('bwFilterBtn');
+        const animationToggleBtn = document.getElementById('animationToggleBtn');
         const thumbnailStrip = document.getElementById('thumbnailStrip');
 
         // Initialize
@@ -833,8 +909,11 @@
                 label.textContent = page.pageType === 'cover' ? 'Cover' : page.pageTitle;
                 
                 thumb.addEventListener('click', () => {
-                    currentPageIndex = index;
-                    displayCurrentPage();
+                    if (!isAnimating) {
+                        navigationDirection = index > currentPageIndex ? 'next' : 'prev';
+                        currentPageIndex = index;
+                        displayCurrentPage();
+                    }
                 });
                 
                 thumbItem.appendChild(thumb);
@@ -845,17 +924,61 @@
 
         // Display current page
         function displayCurrentPage() {
+            if (isAnimating) return; // Prevent rapid page changes during animation
+            
             const currentPage = comicData.pages[currentPageIndex];
+            const allContainers = document.querySelectorAll('.page-container');
 
-            // Hide all pages
-            document.querySelectorAll('.page-container').forEach(page => {
-                page.classList.remove('active');
+            // Get previous page container for exit animation
+            const previousContainer = document.querySelector('.page-container.active');
+            
+            // Remove all animation classes
+            allContainers.forEach(page => {
+                page.classList.remove('active', 'flip-next-enter', 'flip-next-exit', 'flip-prev-enter', 'flip-prev-exit');
             });
 
-            // Show current page
+            // Get the new current page container
             const currentContainer = document.querySelector(`[data-page-index="${currentPageIndex}"]`);
+            
             if (currentContainer) {
-                currentContainer.classList.add('active');
+                // Only animate if animation is enabled
+                if (isAnimationEnabled) {
+                    isAnimating = true;
+                    
+                    // Apply exit animation to previous page if exists
+                    if (previousContainer && previousContainer !== currentContainer) {
+                        if (navigationDirection === 'next') {
+                            previousContainer.classList.add('active', 'slide-next-exit');
+                        } else {
+                            previousContainer.classList.add('active', 'slide-prev-exit');
+                        }
+                    }
+                    
+                    // Apply enter animation to new page
+                    currentContainer.classList.add('active');
+                    if (navigationDirection === 'next') {
+                        currentContainer.classList.add('slide-next-enter');
+                    } else {
+                        currentContainer.classList.add('slide-prev-enter');
+                    }
+                    
+                    // Clean up after animation completes
+                    setTimeout(() => {
+                        allContainers.forEach(page => {
+                            page.classList.remove('slide-next-enter', 'slide-next-exit', 'slide-prev-enter', 'slide-prev-exit');
+                            if (page !== currentContainer) {
+                                page.classList.remove('active');
+                            }
+                        });
+                        isAnimating = false;
+                    }, 800); // Match animation duration
+                } else {
+                    // No animation - instant page change
+                    allContainers.forEach(page => {
+                        page.classList.remove('active');
+                    });
+                    currentContainer.classList.add('active');
+                }
             }
 
             // Update page info
@@ -897,14 +1020,16 @@
 
         // Navigation functions
         function goToPreviousPage() {
-            if (currentPageIndex > 0) {
+            if (currentPageIndex > 0 && !isAnimating) {
+                navigationDirection = 'prev';
                 currentPageIndex--;
                 displayCurrentPage();
             }
         }
 
         function goToNextPage() {
-            if (currentPageIndex < comicData.pages.length - 1) {
+            if (currentPageIndex < comicData.pages.length - 1 && !isAnimating) {
+                navigationDirection = 'next';
                 currentPageIndex++;
                 displayCurrentPage();
             }
@@ -933,10 +1058,18 @@
             });
         }
 
+        // Toggle page turn animation
+        function toggleAnimation() {
+            isAnimationEnabled = !isAnimationEnabled;
+            animationToggleBtn.classList.toggle('active', isAnimationEnabled);
+            animationToggleBtn.textContent = isAnimationEnabled ? '🎬 Hiệu Ứng Bật' : '🎬 Hiệu Ứng';
+        }
+
         // Start reading
         function startReading() {
             document.body.classList.add('reading-mode');
             currentPageIndex = 0;
+            navigationDirection = 'next';
             displayCurrentPage();
         }
 
@@ -957,6 +1090,7 @@
             nextBtn.addEventListener('click', goToNextPage);
             fullscreenBtn.addEventListener('click', toggleFullscreen);
             bwFilterBtn.addEventListener('click', toggleBWFilter);
+            animationToggleBtn.addEventListener('click', toggleAnimation);
 
             // Keyboard navigation
             document.addEventListener('keydown', (e) => {
