@@ -846,7 +846,7 @@
 
         let currentPageIndex = 0;
         let isFullscreen = false;
-        let isBWFilter = false;
+        let isBWFilter = true; // Black & White filter is ON by default
         let isAnimating = false;
         let isAnimationEnabled = false; // Animation is OFF by default
         let navigationDirection = 'next'; // Track direction for animation
@@ -868,6 +868,22 @@
         function init() {
             loadComic();
             setupEventListeners();
+            // Apply B&W filter by default (exclude cover)
+            applyDefaultBWFilter();
+        }
+        
+        // Apply black and white filter by default to all content pages
+        function applyDefaultBWFilter() {
+            const allPageImages = document.querySelectorAll('.page-image');
+            allPageImages.forEach((img, index) => {
+                // Skip cover page (index 0)
+                if (index > 0) {
+                    img.classList.add('bw-filter');
+                }
+            });
+            // Update button state
+            bwFilterBtn.classList.add('active');
+            bwFilterBtn.textContent = '🎨 Màu';
         }
 
         // Load comic data
