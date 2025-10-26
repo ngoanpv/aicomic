@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sập Bẫy Online - Một Khoảnh Khắc Cảnh Tỉnh</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aivengersaicomic.vercel.app/">
+    <meta property="og:title" content="Sập Bẫy Online - Một Khoảnh Khắc Cảnh Tỉnh">
+    <meta property="og:description" content="Truyện tranh giáo dục về nguy cơ lừa đảo trực tuyến dành cho học sinh 11-18 tuổi. Câu chuyện về Mai và bài học đắt giá khi mua sắm online.">
+    <meta property="og:image" content="https://aivengersaicomic.vercel.app/images/page6.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://aivengersaicomic.vercel.app/">
+    <meta property="twitter:title" content="Sập Bẫy Online - Một Khoảnh Khắc Cảnh Tỉnh">
+    <meta property="twitter:description" content="Truyện tranh giáo dục về nguy cơ lừa đảo trực tuyến dành cho học sinh 11-18 tuổi. Câu chuyện về Mai và bài học đắt giá khi mua sắm online.">
+    <meta property="twitter:image" content="https://aivengersaicomic.vercel.app/images/page6.png">
+    
     <style>
         * {
             margin: 0;
@@ -13,17 +28,17 @@
 
         body {
             font-family: 'Segoe UI', 'Roboto', 'San Francisco', -apple-system, system-ui, sans-serif;
-            background: #0f0f0f;
-            color: #ffffff;
+            background: #f7f8fa;
+            color: #222;
             overflow-x: hidden;
         }
 
         /* Header Section */
         .header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
             padding: 60px 40px;
             text-align: center;
-            border-bottom: 2px solid #e94560;
+            border-bottom: 2px solid #ffb347;
             position: relative;
             overflow: hidden;
         }
@@ -35,9 +50,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0 Q300,60 600,30 T1200,60 L1200,120 L0,120 Z" fill="rgba(233,69,96,0.1)"/></svg>') no-repeat bottom;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0 Q300,60 600,30 T1200,60 L1200,120 L0,120 Z" fill="rgba(255,179,71,0.1)"/></svg>') no-repeat bottom;
             background-size: cover;
-            opacity: 0.3;
+            opacity: 0.2;
         }
 
         .comic-logo {
@@ -48,20 +63,20 @@
         .comic-title {
             font-size: 3.5em;
             font-weight: 900;
-            background: linear-gradient(135deg, #e94560, #ff6b9d);
+            background: linear-gradient(135deg, #d97706, #ea580c);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 15px;
-            text-shadow: 0 0 40px rgba(233, 69, 96, 0.5);
+            text-shadow: 0 0 20px rgba(217, 119, 6, 0.3);
             letter-spacing: 2px;
         }
 
         .comic-subtitle {
             font-size: 1.5em;
-            color: #c5c6c7;
+            color: #d97706;
             margin-bottom: 20px;
-            font-weight: 300;
+            font-weight: 600;
             letter-spacing: 1px;
         }
 
@@ -76,17 +91,18 @@
         }
 
         .meta-item {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.9);
+            color: #1f2937;
             padding: 10px 20px;
             border-radius: 20px;
-            border: 1px solid rgba(233, 69, 96, 0.3);
-            font-size: 0.9em;
-            backdrop-filter: blur(10px);
+            border: 1px solid #d97706;
+            font-size: 0.95em;
+            backdrop-filter: blur(2px);
         }
 
         .meta-label {
-            color: #e94560;
-            font-weight: 600;
+            color: #d97706;
+            font-weight: 700;
             margin-right: 8px;
         }
 
@@ -95,7 +111,7 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 60px 40px;
-            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f0f 100%);
+            background: linear-gradient(180deg, #fffbe6 0%, #f7f8fa 100%);
         }
 
         .story-header {
@@ -107,24 +123,24 @@
 
         .story-icon {
             font-size: 2.5em;
-            filter: drop-shadow(0 0 20px rgba(233, 69, 96, 0.5));
+            filter: drop-shadow(0 0 10px rgba(255, 179, 71, 0.3));
         }
 
         .story-title {
             font-size: 2em;
-            color: #e94560;
+            color: #d97706;
             font-weight: 700;
         }
 
         .story-content {
             font-size: 1.15em;
             line-height: 1.9;
-            color: #c5c6c7;
-            background: rgba(255, 255, 255, 0.03);
+            color: #1f2937;
+            background: rgba(255, 255, 255, 0.9);
             padding: 30px;
             border-radius: 15px;
-            border-left: 4px solid #e94560;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            border-left: 4px solid #d97706;
+            box-shadow: 0 4px 20px rgba(217, 119, 6, 0.08);
         }
 
         /* Character Section */
@@ -135,11 +151,11 @@
         }
 
         .character-card {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.8));
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
             border-radius: 20px;
             padding: 35px;
-            border: 1px solid rgba(233, 69, 96, 0.2);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+            border: 1px solid #d97706;
+            box-shadow: 0 4px 20px rgba(217, 119, 6, 0.08);
         }
 
         .character-header {
@@ -148,22 +164,22 @@
             align-items: center;
             margin-bottom: 25px;
             padding-bottom: 20px;
-            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+            border-bottom: 2px solid #d97706;
         }
 
         .character-name {
             font-size: 2em;
-            color: #ff6b9d;
+            color: #d97706;
             font-weight: 700;
         }
 
         .character-role {
-            background: rgba(233, 69, 96, 0.2);
+            background: rgba(217, 119, 6, 0.15);
             padding: 8px 20px;
             border-radius: 20px;
-            color: #e94560;
+            color: #92400e;
             font-size: 0.9em;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .character-details {
@@ -174,14 +190,14 @@
         }
 
         .detail-group {
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.8);
             padding: 15px;
             border-radius: 10px;
         }
 
         .detail-label {
-            color: #e94560;
-            font-weight: 600;
+            color: #d97706;
+            font-weight: 700;
             font-size: 0.85em;
             text-transform: uppercase;
             margin-bottom: 8px;
@@ -189,7 +205,7 @@
         }
 
         .detail-value {
-            color: #c5c6c7;
+            color: #1f2937;
             font-size: 1em;
             line-height: 1.6;
         }
@@ -198,32 +214,32 @@
         .start-reading-section {
             text-align: center;
             padding: 40px;
-            background: linear-gradient(180deg, #0f0f0f 0%, #1a1a2e 100%);
+            background: linear-gradient(180deg, #fffbe6 0%, #ffe0b2 100%);
         }
 
         .start-reading-btn {
             padding: 20px 50px;
             font-size: 1.3em;
             font-weight: 700;
-            background: linear-gradient(135deg, #e94560, #ff6b9d);
-            color: white;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #ffffff;
             border: none;
             border-radius: 15px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 40px rgba(233, 69, 96, 0.4);
+            box-shadow: 0 10px 40px rgba(217, 119, 6, 0.3);
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
         .start-reading-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(233, 69, 96, 0.6);
+            box-shadow: 0 15px 50px rgba(217, 119, 6, 0.4);
         }
 
         /* Comic Viewer */
         .comic-viewer-wrapper {
-            background: #000000;
+            background: #fffbe6;
             min-height: 100vh;
             padding: 40px 20px;
             display: none;
@@ -240,10 +256,10 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 30px;
-            background: rgba(26, 26, 46, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(233, 69, 96, 0.2);
+            backdrop-filter: blur(2px);
+            border: 1px solid #d97706;
             flex-wrap: wrap;
             gap: 20px;
         }
@@ -257,12 +273,12 @@
         .page-number {
             font-size: 1.3em;
             font-weight: 700;
-            color: #e94560;
+            color: #d97706;
         }
 
         .page-title {
             font-size: 1.1em;
-            color: #c5c6c7;
+            color: #1f2937;
         }
 
         .controls-right {
@@ -273,9 +289,9 @@
 
         .fullscreen-btn, .close-btn, .bw-filter-btn {
             padding: 12px 25px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid #e94560;
-            color: #e94560;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #d97706;
+            color: #d97706;
             border-radius: 10px;
             font-size: 0.95em;
             font-weight: 700;
@@ -284,13 +300,14 @@
         }
 
         .fullscreen-btn:hover, .close-btn:hover, .bw-filter-btn:hover {
-            background: rgba(233, 69, 96, 0.2);
+            background: #fde68a;
             transform: translateY(-3px);
         }
 
         .bw-filter-btn.active {
-            background: rgba(233, 69, 96, 0.3);
-            border-color: #ff6b9d;
+            background: #d97706;
+            border-color: #92400e;
+            color: #fff;
         }
 
         .comic-display {
@@ -333,7 +350,7 @@
             margin: 0 auto;
             display: block;
             border-radius: 15px;
-            box-shadow: 0 20px 80px rgba(233, 69, 96, 0.3);
+            box-shadow: 0 8px 32px rgba(217, 119, 6, 0.15);
             cursor: pointer;
             transition: transform 0.3s ease;
         }
@@ -356,36 +373,37 @@
             align-items: center;
             gap: 20px;
             padding: 30px;
-            background: rgba(26, 26, 46, 0.6);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(2px);
+            border: 1px solid #d97706;
         }
 
         .nav-btn {
             padding: 15px 35px;
-            background: linear-gradient(135deg, #e94560, #ff6b9d);
-            color: white;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #ffffff;
             border: none;
             border-radius: 10px;
             font-size: 1em;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.3);
+            box-shadow: 0 5px 20px rgba(217, 119, 6, 0.2);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .nav-btn:hover:not(:disabled) {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.5);
+            box-shadow: 0 10px 30px rgba(217, 119, 6, 0.3);
         }
 
         .nav-btn:disabled {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(209, 213, 219, 0.5);
             cursor: not-allowed;
             box-shadow: none;
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(107, 114, 128, 0.5);
         }
 
         /* Page Thumbnails */
@@ -396,10 +414,10 @@
             gap: 15px;
             padding: 25px;
             overflow-x: auto;
-            background: rgba(26, 26, 46, 0.4);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
             scrollbar-width: thin;
-            scrollbar-color: #e94560 rgba(255, 255, 255, 0.1);
+            scrollbar-color: #d97706 rgba(255, 255, 255, 0.1);
         }
 
         .thumbnail-strip::-webkit-scrollbar {
@@ -412,7 +430,7 @@
         }
 
         .thumbnail-strip::-webkit-scrollbar-thumb {
-            background: #e94560;
+            background: #d97706;
             border-radius: 10px;
         }
 
@@ -429,25 +447,25 @@
             cursor: pointer;
             border: 3px solid transparent;
             transition: all 0.3s ease;
-            opacity: 0.6;
+            opacity: 0.7;
         }
 
         .thumbnail:hover {
-            border-color: #ff6b9d;
+            border-color: #f59e0b;
             opacity: 1;
             transform: scale(1.05);
         }
 
         .thumbnail.active {
-            border-color: #e94560;
+            border-color: #d97706;
             opacity: 1;
-            box-shadow: 0 5px 25px rgba(233, 69, 96, 0.6);
+            box-shadow: 0 5px 25px rgba(217, 119, 6, 0.3);
         }
 
         .thumbnail-label {
             margin-top: 8px;
             font-size: 0.85em;
-            color: #c5c6c7;
+            color: #92400e;
             font-weight: 600;
         }
 
@@ -456,8 +474,8 @@
             max-width: 900px;
             margin: 40px auto;
             padding: 25px 30px;
-            background: linear-gradient(135deg, rgba(233, 69, 96, 0.15), rgba(255, 107, 157, 0.1));
-            border-left: 5px solid #e94560;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 5px solid #d97706;
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -466,7 +484,7 @@
 
         .warning-icon {
             font-size: 2.5em;
-            filter: drop-shadow(0 0 15px rgba(233, 69, 96, 0.5));
+            filter: drop-shadow(0 0 10px rgba(217, 119, 6, 0.2));
         }
 
         .warning-content {
@@ -476,12 +494,12 @@
         .warning-title {
             font-size: 1.3em;
             font-weight: 700;
-            color: #e94560;
+            color: #d97706;
             margin-bottom: 10px;
         }
 
         .warning-text {
-            color: #c5c6c7;
+            color: #1f2937;
             line-height: 1.6;
         }
 
@@ -504,6 +522,7 @@
             height: 100vh;
             z-index: 9999;
             padding: 0;
+            background: #fffbe6;
         }
 
         body.fullscreen .comic-display {
@@ -576,7 +595,7 @@
                 <span class="meta-item"><span class="meta-label">Thể loại:</span>Edutainment, Drama</span>
                 <span class="meta-item"><span class="meta-label">Đối tượng:</span>Học sinh 11-18 tuổi</span>
                 <span class="meta-item"><span class="meta-label">Phong cách:</span>Modern Manga</span>
-                <span class="meta-item"><span class="meta-label">Số trang:</span>6 trang (1 cover + 5 trang)</span>
+                <span class="meta-item"><span class="meta-label">Số trang:</span>7 trang (1 cover + 6 trang)</span>
             </div>
         </div>
     </div>
@@ -600,11 +619,23 @@
             <h2 class="story-title">Câu Chuyện</h2>
         </div>
         <div class="story-content">
-            Trong một cảnh duy nhất, cô học sinh tên Mai đối mặt với sự thật phũ phàng khi trang web 
-            mà cô đã tin tưởng đặt mua món đồ yêu thích đã biến mất, để lại cô với cảm giác sốc và 
-            nhận ra mình đã bị lừa đảo. Câu chuyện tập trung vào khoảnh khắc bàng hoàng khi một học 
-            sinh nhận ra mình đã trở thành nạn nhân của lừa đảo trực tuyến - một vấn đề ngày càng 
-            phổ biến trong giới trẻ Việt Nam hiện đại.
+            <strong>Trang 1 - "404 - Hy Vọng Không Tìm Thấy":</strong> Mai phát hiện website đã biến mất, 
+            nhận ra mình bị lừa đảo. Khoảnh khắc đau đớn của sự thật.<br><br>
+            
+            <strong>Trang 2 - "Cú Nhấp Chuột Vội Vã":</strong> Flashback - Mai thuyết phục mẹ, háo hức 
+            nhập thông tin thanh toán để mua lightstick K-pop giảm giá.<br><br>
+            
+            <strong>Trang 3 - "Sự Im Lặng Đáng Sợ":</strong> Một tuần trôi qua không có hàng. Mai kiểm tra 
+            và thấy thông báo "404 Not Found" - website đã biến mất.<br><br>
+            
+            <strong>Trang 4 - "Bài Học Đắt Giá":</strong> Mẹ và bạn thân An an ủi Mai. Cả ba cùng tìm hiểu 
+            về dấu hiệu lừa đảo online.<br><br>
+            
+            <strong>Trang 5 - "Chia Sẻ Để Bảo Vệ":</strong> Mai và An tạo bài đăng cảnh báo cho học sinh khác, 
+            biến nỗi đau thành bài học ý nghĩa.<br><br>
+            
+            <strong>Trang 6 - "Lan Tỏa Bài Học":</strong> Các bài học ý nghĩa từ câu chuyện của Mai 
+            cần được lan truyền rộng rãi để bảo vệ nhiều bạn trẻ khỏi bẫy lừa đảo online.
         </div>
     </div>
 
@@ -630,7 +661,7 @@
                 </div>
                 <div class="detail-group">
                     <div class="detail-label">Bối Cảnh</div>
-                    <div class="detail-value">Học sinh trung học đã tiết kiệm tiền để mua món đồ phiên bản giới hạn trên mạng</div>
+                    <div class="detail-value">Học sinh trung học háo hức mua lightstick K-pop giảm giá online, nhưng đã trở thành nạn nhân của lừa đảo</div>
                 </div>
             </div>
         </div>
@@ -647,6 +678,9 @@
             <div class="page-indicator">
                 <span class="page-number" id="pageNumber">Cover</span>
                 <span class="page-title" id="pageTitle"></span>
+            </div>
+            <div class="navigation-guideline" style="margin-left:20px;color:#d97706;font-size:1em;font-weight:600;">
+                <span>Nhấn <b>←</b> hoặc <b>→</b> để chuyển trang. Bạn cũng có thể dùng phím <b>A/D</b> hoặc <b>Space</b>!</span>
             </div>
             <div class="controls-right">
                 <button class="bw-filter-btn" id="bwFilterBtn">⬛ Đen Trắng</button>
@@ -674,6 +708,9 @@
         // CẤU HÌNH TRUYỆN TRANH
         // ====================================
         
+        // Detect if running locally or on server
+        const basePath = window.location.protocol === 'file:' ? '' : '/';
+        
         const comicData = {
             title: "Sập Bẫy Online",
             subtitle: "Một Khoảnh Khắc Cảnh Tỉnh",
@@ -683,43 +720,50 @@
                     pageNumber: 0,
                     pageType: "cover",
                     pageTitle: "Cover",
-                    imageUrl: "/images/cover.png",
+                    imageUrl: basePath + "images/cover.png",
                     altText: "Cover của truyện Sập Bẫy Online"
                 },
                 {
                     pageNumber: 1,
                     pageType: "content",
                     pageTitle: "Trang 1",
-                    imageUrl: "/images/page1.png",
+                    imageUrl: basePath + "images/page1.png",
                     altText: "Trang 1 - 1 panel"
                 },
                 {
                     pageNumber: 2,
                     pageType: "content",
                     pageTitle: "Trang 2",
-                    imageUrl: "/images/page2.png",
+                    imageUrl: basePath + "images/page2.png",
                     altText: "Trang 2 - 4 panels"
                 },
                 {
                     pageNumber: 3,
                     pageType: "content",
                     pageTitle: "Trang 3",
-                    imageUrl: "/images/page3.png",
+                    imageUrl: basePath + "images/page3.png",
                     altText: "Trang 3 - 4 panels"
                 },
                 {
                     pageNumber: 4,
                     pageType: "content",
                     pageTitle: "Trang 4",
-                    imageUrl: "/images/page4.png",
+                    imageUrl: basePath + "images/page4.png",
                     altText: "Trang 4 - 2 panels"
                 },
                 {
                     pageNumber: 5,
                     pageType: "content",
                     pageTitle: "Trang 5",
-                    imageUrl: "/images/page5.png",
+                    imageUrl: basePath + "images/page5.png",
                     altText: "Trang 5 - 3 panels"
+                },
+                {
+                    pageNumber: 6,
+                    pageType: "content",
+                    pageTitle: "Trang 6",
+                    imageUrl: basePath + "images/page6.png",
+                    altText: "Trang 6 - Lan tỏa bài học"
                 }
             ]
         };
